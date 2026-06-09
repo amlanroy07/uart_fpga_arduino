@@ -1,7 +1,7 @@
 // =============================================================================
 // Module      : uart_top
 // Project     : UART — ICE40HX1K FPGA ↔ Arduino Uno
-// Author      : (Your Name)
+// Author      : Amlan Roy
 // Description : Top-level integration of uart_rx and uart_tx for the Lattice
 //               iCEstick (iCE40HX1K) evaluation board.
 //
