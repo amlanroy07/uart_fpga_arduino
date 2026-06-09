@@ -236,7 +236,3 @@ OVS_TICK_DIV = (CLK_FREQ / (BAUD_RATE × 16)) − 1
 - No hardware flow control (RTS/CTS)
 
 ---
-
-## License
-
-MIT — see `LICENSE` file.
