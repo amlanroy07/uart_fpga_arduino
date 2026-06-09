@@ -1,0 +1,51 @@
+# =============================================================================
+# File        : icestick.pcf
+# Project     : UART — ICE40HX1K FPGA ↔ Arduino Uno
+# Description : Physical Constraints File for the Lattice iCEstick evaluation
+#               board (iCE40HX1K-TQ144).
+#
+# Pin assignments follow the iCEstick schematic / User Guide (FPGA-TN-02024).
+#
+# Wiring to Arduino Uno (use dedicated RX/TX pins):
+#
+#   Arduino Pin 1 (TX) ──[10kΩ]──► FPGA Pin 62 (rxd)   [3.3V protection]
+#   Arduino Pin 0 (RX) ◄────────── FPGA Pin 61 (txd)
+#   Arduino GND        ──────────── iCEstick GND (PMOD J2 pin 11)
+#
+# NOTE: Disconnect Arduino pins 0 and 1 before uploading any new sketch,
+#       as they are shared with the USB-Serial bootloader.
+#
+# iCEstick PMOD J2 connector layout (top view):
+#   [ 1][ 2][ 3][ 4][GND]
+#   [ 6][ 7][ 8][ 9][VCC]
+#      [11][12]
+#      [GND][GND]
+#
+#   PMOD pin 7  → FPGA pin 62  (used for RXD ← Arduino TX)
+#   PMOD pin 8  → FPGA pin 61  (used for TXD → Arduino RX)
+#   PMOD pin 11 → GND
+# =============================================================================
+
+# 12 MHz on-board oscillator
+set_io clk   21
+
+# UART RX — receives data FROM Arduino Uno pin 1 (TX)
+# Arduino TX is 5V; use a 10kΩ series resistor to protect the 3.3V FPGA input
+set_io rxd   62
+
+# UART TX — sends data TO Arduino Uno pin 0 (RX)
+# FPGA output is 3.3V which Arduino Uno RX accepts without level shifting
+set_io txd   61
+
+# On-board green LEDs (D1–D5)
+# D1 = activity indicator: blinks on each received byte
+set_io led       99
+
+# D2 = frame-error indicator: lights when a framing error is detected
+set_io frame_err 98
+
+# Active-low reset (optional)
+# iCEstick has no dedicated reset button.
+# Uncomment and route to an unused PMOD pin if needed,
+# otherwise rst_n is tied HIGH internally (power-on-reset only).
+# set_io rst_n  56
