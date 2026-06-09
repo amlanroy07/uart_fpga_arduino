@@ -1,7 +1,7 @@
 // =============================================================================
 // Module      : uart_tx
 // Project     : UART — ICE40HX1K FPGA ↔ Arduino Uno
-// Author      : (Your Name)
+// Author      : Amlan Roy
 // Description : UART transmitter.  Accepts a parallel byte on tx_data when
 //               tx_start is asserted, serialises it LSB-first with one start
 //               bit (LOW) and one stop bit (HIGH), and drives txd accordingly.
