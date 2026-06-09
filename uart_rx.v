@@ -1,7 +1,7 @@
 // =============================================================================
 // Module      : uart_rx
 // Project     : UART — ICE40HX1K FPGA ↔ Arduino Uno
-// Author      : (Your Name)
+// Author      : Amlan Roy
 // Description : UART receiver with 16x oversampling and two-stage CDC sync.
 //               Detects start bit, samples 8 data bits at mid-bit, checks
 //               stop bit, and asserts rx_ready for one clock cycle when a
@@ -27,8 +27,8 @@
 //
 // Timing notes
 //   OVS_TICK_DIV = (CLK_FREQ / (BAUD_RATE * 16)) - 1
-//   iCEstick 12 MHz, 9600 baud   → OVS_TICK_DIV = 77  (0.00% error ✅)
-//   iCEstick 12 MHz, 115200 baud → OVS_TICK_DIV =  5  (6.51% error ❌)
+//   iCEstick 12 MHz, 9600 baud   → OVS_TICK_DIV = 77  (0.00% error )
+//   iCEstick 12 MHz, 115200 baud → OVS_TICK_DIV =  5  (6.51% error )
 //   Always use 9600 baud for the Arduino Uno ↔ iCEstick link.
 //
 // Synthesis target : Lattice iCE40HX1K (iCEstick evaluation board)
