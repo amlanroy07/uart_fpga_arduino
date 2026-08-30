@@ -1,7 +1,8 @@
 // =============================================================================
 // Module      : uart_rx
 // Project     : UART — ICE40HX1K FPGA ↔ Arduino Uno
-// Author      : (Your Name)
+// Author      : Amlan Roy
+
 // Description : UART receiver with 16x oversampling and two-stage CDC sync.
 //               Detects start bit, samples 8 data bits at mid-bit, checks
 //               stop bit, and asserts rx_ready for one clock cycle when a
